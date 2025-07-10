@@ -12,14 +12,17 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
+  if (!mounted) return null; // ⛔ Don’t render on server
+
   const linkStyle = (path: string) =>
     `px-2 py-1 text-black hover:text-blue-600 transition-colors ${
-      mounted && pathname === path ? 'underline underline-offset-4 font-semibold' : ''
+      pathname.replace(/\/+$/, '') === path
+        ? 'underline underline-offset-4 font-semibold'
+        : ''
     }`;
-  console.log("CURRENT PATHNAME:", pathname);
 
   return (
-    <nav className="bg-gray-100 border-b shadow-sm">
+    <nav className="bg-white border-b shadow-sm sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold text-black hover:text-blue-600">
           Zach Shaffer
