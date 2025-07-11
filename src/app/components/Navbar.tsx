@@ -39,7 +39,7 @@ export default function Navbar() {
             download
             className="text-black hover:text-blue-600 transition-colors"
           >
-            Resume
+            Download Resume
           </a>
         </div>
       </div>
