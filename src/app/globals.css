@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+/* at the top of globals.css */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

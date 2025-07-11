@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
@@ -14,9 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900">
+      <body className="relative min-h-screen bg-gradient-to-br from-purple-500 to-blue-500 text-white overflow-x-hidden">
         <Navbar />
-        <main className="max-w-5xl mx-auto p-6">{children}</main>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );

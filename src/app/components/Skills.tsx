@@ -18,20 +18,23 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-16 bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">Tech Stack</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:scale-105 hover:shadow-lg transition-transform"
-            >
-              {skill.icon}
-              <span className="mt-2 text-sm font-medium">{skill.label}</span>
-            </div>
-          ))}
-        </div>
+    <section className="py-16">
+      <h2 className="text-3xl font-bold text-center mb-10 text-white">Tech Stack</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 px-6 max-w-5xl mx-auto">
+        {skills.map((skill, i) => (
+          <div
+            key={i}
+            className="
+              flex flex-col items-center justify-center p-4 rounded-xl
+              bg-white/20 backdrop-blur-sm
+              hover:bg-white/30 hover:scale-105
+              transition
+            "
+          >
+            <div className="text-white">{skill.icon}</div>
+            <span className="mt-2 text-sm font-medium text-white">{skill.label}</span>
+          </div>
+        ))}
       </div>
     </section>
   );
