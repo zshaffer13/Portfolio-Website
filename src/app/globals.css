@@ -64,3 +64,31 @@ body {
   pointer-events: none;
 }
 
+/* Base: hide scrollbar */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
+
+/* On hover: show a thin, semi-transparent scrollbar */
+.no-scrollbar:hover {
+  scrollbar-width: thin;
+}
+.no-scrollbar:hover::-webkit-scrollbar {
+  display: block;
+  height: 8px;
+}
+.no-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 4px;
+}
+.no-scrollbar:hover::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-mask {
+  mask-image: linear-gradient(to left, transparent, black 20%);
+}

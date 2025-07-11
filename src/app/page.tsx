@@ -1,4 +1,6 @@
 import Skills from "./components/Skills";
+import Experience from "./components/Experience";
+
 
 export default function Home() {
   return (
@@ -37,6 +39,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 👔 PROFESSIONAL EXPERIENCE */}
+      <Experience />      
 
       {/* 🛠️ TECH STACK SECTION */}
       <section className="py-16 px-6">
