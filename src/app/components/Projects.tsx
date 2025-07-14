@@ -24,47 +24,50 @@ export default async function Projects() {
     },
   ];
 
-  // Fetch all language breakdowns in parallel
   const languagesList = await Promise.all(
     repos.map((repo) => fetchLanguages("zshaffer13", repo.slug))
   );
 
   return (
-    <main className="min-h-screen text-gray-900 px-4 py-16">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold mb-10 text-center fade-in-up">Projects</h1>
+    <section id="projects" className="py-16">
+      <h2 className="text-3xl font-bold text-center mb-8 tracking-widest text-white">
+        Projects
+      </h2>
 
-        <div className="grid gap-8 md:grid-cols-2 fade-in-up">
+      <div className="overflow-x-auto px-4 no-scrollbar">
+        <div className="flex justify-center space-x-6 snap-x snap-mandatory">
           {repos.map((repo, index) => (
-            <div
+            <a
               key={repo.slug}
-              className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 transition hover:shadow-md"
+              href={`https://github.com/zshaffer13/${repo.slug.replace(/\s/g, "-")}`}
+              target="_blank"
+              className="snap-start flex-shrink-0 w-80 bg-white/20 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:bg-white/30 transition"
             >
-              <h2 className="text-2xl font-semibold mb-2">{repo.name}</h2>
-              <p className="text-gray-600 mb-4">{repo.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {repo.name}
+              </h3>
+              <p className="text-gray-200 mb-4 text-sm">
+                {repo.description}
+              </p>
 
-              <div className="flex gap-2 flex-wrap text-sm">
+              <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {languagesList[index].map(({ lang, percent }) => (
                   <span
                     key={lang}
-                    className="px-2 py-1 bg-gray-100 text-gray-800 rounded"
+                    className="px-2 py-1 bg-white/30 text-white text-xs rounded"
                   >
                     {lang} ({percent}%)
                   </span>
                 ))}
               </div>
 
-              <a
-                href={`https://github.com/zshaffer13/${repo.slug.replace(/\s/g, "-")}`}
-                target="_blank"
-                className="inline-block mt-4 text-blue-600 hover:underline font-medium"
-              >
+              <p className="text-blue-300 font-medium text-sm">
                 View on GitHub →
-              </a>
-            </div>
+              </p>
+            </a>
           ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 }
