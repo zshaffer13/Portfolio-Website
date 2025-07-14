@@ -1,43 +1,38 @@
 'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // ⛔ Don’t render on server
+  if (!mounted) return null; // avoid SSR mismatch
 
-  const linkStyle = (path: string) =>
-    `px-2 py-1 text-black hover:text-blue-600 transition-colors ${
-      pathname.replace(/\/+$/, '') === path
-        ? 'underline underline-offset-4 font-semibold'
-        : ''
-    }`;
+  const linkClass = "text-black px-2 py-1 hover:text-blue-600 transition";
 
   return (
-    <nav className="bg-white border-b shadow-sm sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-white border-b shadow-sm">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-black hover:text-blue-600">
+        <a
+          href="#home"
+          className="text-xl font-bold text-black hover:text-blue-600 transition"
+        >
           Zach Shaffer
-        </Link>
-        <div className="space-x-4">
-          <Link href="/projects" className={linkStyle('/projects')}>
+        </a>
+        <div className="flex items-center space-x-4">
+          <a href="#projects" className={linkClass}>
             Projects
-          </Link>
-          <Link href="/contact" className={linkStyle('/contact')}>
+          </a>
+          <a href="#contact" className={linkClass}>
             Contact
-          </Link>
+          </a>
           <a
             href="/Zach Shaffer Resume.pdf"
             download
-            className="text-black hover:text-blue-600 transition-colors"
+            className={linkClass}
           >
             Download Resume
           </a>
