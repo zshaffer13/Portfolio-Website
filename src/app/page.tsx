@@ -1,26 +1,32 @@
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
-
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-gradient-to-br from-purple-500 to-blue-500 text-white overflow-x-hidden">
+    <main className="relative bg-gradient-to-br from-purple-500 to-blue-500 text-white">
       {/* 🌈 Blurred Background Blob */}
-      <div className="absolute w-[60rem] h-[60rem] bg-white rounded-full blur-3xl opacity-30 animate-pulse-slow -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute inset-0 -z-10 flex items-center justify-center">
+        <div className="w-[60rem] h-[60rem] bg-white rounded-full blur-3xl opacity-30 animate-pulse-slow" />
+      </div>
 
       {/* 👤 HERO SECTION */}
-      <section className="h-screen flex items-center justify-center px-6">
+      <section
+        id="home"
+        className="h-screen flex items-center justify-center px-6"
+      >
         <div className="max-w-2xl text-center animate-fade-in">
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight">
-            Hi, I'm Zach Shaffer
+            Hi, I’m Zach Shaffer
           </h1>
-          <p className="text-lg sm:text-xl mb-8">
-            I'm an AI Engineer with 4+ years of experience building machine
-            learning models, computer vision solutions, and scalable
-            cloud-based data pipelines. Skilled in applying cutting-edge
-            research to practical, high-impact applications. Passionate about
-            driving innovation through deep learning, generative AI, and
-            real-time analytics.
+          <p className="text-lg sm:text-xl mb-8 text-gray-100">
+            I’m an AI Engineer with 4+ years of experience building machine
+            learning models, computer vision solutions, and scalable cloud-based
+            data pipelines. Skilled in applying cutting-edge research to
+            practical, high-impact applications. Passionate about driving
+            innovation through deep learning, generative AI, and real-time
+            analytics.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <a
@@ -31,7 +37,7 @@ export default function Home() {
               Download Resume
             </a>
             <a
-              href="/projects"
+              href="#projects"
               className="px-6 py-3 border border-white text-white rounded-lg text-sm font-semibold hover:bg-white hover:text-black transition shadow-sm"
             >
               View Projects
@@ -40,14 +46,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 👔 PROFESSIONAL EXPERIENCE */}
-      <Experience />      
+      {/* 👔 EXPERIENCE SECTION */}
+      <section
+        id="experience"
+        className="py-16 bg-white/10 backdrop-blur-sm"
+      >
+        <Experience />
+      </section>
 
-      {/* 🛠️ TECH STACK SECTION */}
-      <section className="py-16 px-6">
-        <div className="max-w-5xl mx-auto">
-          <Skills />
-        </div>
+      {/* 🛠️ SKILLS SECTION */}
+      <section id="skills" className="py-16">
+        <Skills />
+      </section>
+
+      {/* 📁 PROJECTS SECTION */}
+      <section id="projects" className="py-16">
+        <Projects />
+      </section>
+
+      {/* 📬 CONTACT SECTION */}
+      <section id="contact" className="py-16">
+        <Contact />
       </section>
     </main>
   );
