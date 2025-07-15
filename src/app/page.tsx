@@ -2,6 +2,7 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import RevealSection from "./components/RevealSection";
 
 export default function Home() {
   return (
@@ -12,21 +13,13 @@ export default function Home() {
       </div>
 
       {/* 👤 HERO SECTION */}
-      <section
-        id="home"
-        className="h-screen flex items-center justify-center px-6"
-      >
+      <section id="home" className="h-screen flex items-center justify-center px-6">
         <div className="max-w-2xl text-center animate-fade-in">
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight">
             Hi, I’m Zach Shaffer
           </h1>
           <p className="text-lg sm:text-xl mb-8 text-gray-100">
-            I’m an AI Engineer with 4+ years of experience building machine
-            learning models, computer vision solutions, and scalable cloud-based
-            data pipelines. Skilled in applying cutting-edge research to
-            practical, high-impact applications. Passionate about driving
-            innovation through deep learning, generative AI, and real-time
-            analytics.
+            I’m an AI Engineer with 4+ years of experience building machine learning models, computer vision solutions, and scalable cloud-based data pipelines. Skilled in applying cutting-edge research to practical, high-impact applications. Passionate about driving innovation through deep learning, generative AI, and real-time analytics.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <a
@@ -47,27 +40,24 @@ export default function Home() {
       </section>
 
       {/* 👔 EXPERIENCE SECTION */}
-      <section
-        id="experience"
-        className="py-16 bg-white/10 backdrop-blur-sm"
-      >
+      <RevealSection id="experience" className="py-16 bg-white/20 backdrop-blur-sm">
         <Experience />
-      </section>
+      </RevealSection>
 
       {/* 🛠️ SKILLS SECTION */}
-      <section id="skills" className="py-16">
+      <RevealSection id="skills" className="py-16">
         <Skills />
-      </section>
+      </RevealSection>
 
       {/* 📁 PROJECTS SECTION */}
-      <section id="projects" className="py-16">
+      <RevealSection id="projects" className="py-16">
         <Projects />
-      </section>
+      </RevealSection>
 
       {/* 📬 CONTACT SECTION */}
-      <section id="contact" className="py-16">
+      <RevealSection id="contact" className="py-16">
         <Contact />
-      </section>
+      </RevealSection>
     </main>
   );
 }
