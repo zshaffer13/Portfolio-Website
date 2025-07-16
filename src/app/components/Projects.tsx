@@ -3,6 +3,11 @@ import { fetchLanguages } from "@/lib/github";
 export default async function Projects() {
   const repos = [
     {
+      name: "Protein Fat Detection",
+      slug: "meat-fat-prediction",
+      description: "Deep Learning model to predict protein and fat content in meat.",
+    },
+    {
       name: "OpenGL-Fractals",
       slug: "OpenGL-Fractals",
       description: "GPU-accelerated fractal zoom renderer using OpenGL shaders.",
